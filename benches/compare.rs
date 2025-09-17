@@ -32,7 +32,9 @@ fn bench_rust<T: Display, CB: FnMut() -> T>(mut callback: CB) -> (CB, T) {
 library_benchmark_group!(
     name = bench_group;
     compare_by_id = true;
-    benchmarks = bench_cpp,bench_rust
+    benchmarks =
+    bench_cpp,
+    bench_rust,
 );
 
 main!(library_benchmark_groups = bench_group);
