@@ -25,7 +25,7 @@ fn bench_cpp<T: Display, CB: FnMut() -> T>(mut callback: CB) -> (CB, T) {
 #[bench::short(args = (rust_max_ptr, 10), setup = setup, teardown = teardown)]
 #[bench::long(args = (rust_max_ptr, 50), setup = setup, teardown = teardown)]
 fn bench_rust<T: Display, CB: FnMut() -> T>(mut callback: CB) -> (CB, T) {
-    let max = callback();
+    let max = black_box(callback());
     (callback, max)
 }
 
