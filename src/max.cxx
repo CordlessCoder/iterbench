@@ -15,5 +15,9 @@ inline auto expandIotaViews(std::span<int32_t> input) {
 extern "C" int32_t cpp_max_ptr(int32_t* ptr, size_t len) noexcept {
     std::span<int32_t> s = {ptr, len};
     auto result = expandIotaViews(s);
+    // Guard against UB on empty range
+    if (s.empty()) {
+        return 0;
+    }
     return std::ranges::max(result);
 }
