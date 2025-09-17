@@ -1,0 +1,16 @@
+[package]
+name = "iterbench"
+version = "0.1.0"
+edition = "2024"
+
+[[bench]]
+harness = false
+name = "compare"
+
+[dependencies]
+
+[build-dependencies]
+cc = "1.2.37"
+
+[dev-dependencies]
+iai-callgrind = "0.16.1"
